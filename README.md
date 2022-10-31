@@ -1,4 +1,4 @@
-# Fidus-Book-Style - Report001
+# Fidus Book Style - Report001
 
 A Book Style intended for upload to Fidus Writer.
 
