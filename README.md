@@ -1,10 +1,14 @@
-# Fidus Book Style - Report001
+# Fidus Book Style - Report002
 
 A Book Style intended for upload to Fidus Writer.
 
-Style name: Report001
+Style name: Report002
 
 Use: The style is intended for public reports, policy documents, and short guides, etc.
+
+This style 'Report002' is different from 'Report001' in that it contains branding assets for the cover.
+
+
 
 Contents:
 
