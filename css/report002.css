@@ -65,17 +65,15 @@ src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(media/FiraSans-R
     font-family: "Fira Sans";
     font-weight: 200;
     font-style: normal;
-    src : url(/media/media/media/media/FiraSans-ExtraLight.ttf);
     src: local('Fira Sans ExtraLight'), local('FiraSans-ExtraLight'), url(media/FiraSans-ExtraLight.ttf) format('truetype');
 }
 @font-face {
     font-family: "Fira Sans";
     font-weight: 200;
     font-style: italic;
-    src : url(/media/media/media/media/FiraSans-ExtraLightItalic.ttf);
     src: local('Fira Sans ExtraLight Italic'), local('FiraSans-ExtraLightItalic'), url(media/FiraSans-ExtraLightItalic.ttf) format('truetype');
 }
-/*Condesed*/
+/*Condensed*/
 @font-face {
     font-family: "Fira Sans Condensed";
     font-weight: 600;
@@ -105,9 +103,6 @@ src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(media/FiraSans-R
     font-weight: 200;
     font-style: normal;
     src: local('Fira Sans Condensed ExtraLight'), local('FiraSansCondensed-ExtraLight'), url(media/FiraSansCondensed-ExtraLight.ttf) format('truetype');
-}
-*{
-  font-family: "Fira Sans", sans-serif;
 }
 @page {
   size: 210mm 297mm;
@@ -146,16 +141,18 @@ src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(media/FiraSans-R
   @bottom-left {
     content: counter(page) " "" | "" "  env(doc-title);
     font-family: "Fira Sans", sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
     font-weight: 400;
-    font-size: 12px;
     color: #000;
     letter-spacing: 0.1pt;
     /*word-spacing: 1px;*/
     background-image: linear-gradient(#f68b1e,#f3820e);
     background-repeat: no-repeat;
-    background-size: 80px 9px;
+    background-size: 70px 6px;
     background-position: 0 45%;
     padding-bottom: 40px;
+    width: 150mm;
     }
   }
 }
@@ -176,14 +173,16 @@ src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(media/FiraSans-R
     content: string(chapter-title, start) " "" | "" " counter(page);
     font-family: "Fira Sans", sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 1rem;
+    font-weight: 400;
     color: #000;
     letter-spacing: 0.1pt;
     background-image: linear-gradient(#f68b1e,#f3820e);
     background-repeat: no-repeat;
-    background-size: 80px 9px;
+    background-size: 70px 6px;
     background-position: 100% 45%;
     padding-bottom: 40px;
+    width: 150mm;
   }
 }
 
@@ -194,19 +193,10 @@ src: local('Fira Sans Regular'), local('FiraSans-Regular'), url(media/FiraSans-R
   @top-left { content: normal; }
   @top-right { content: normal; }
 }
-html {
-  font-size: 18px;
-  font-weight: 300;
-  color: #000;
-  text-rendering: optimizeLegibility;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-html body { background-color: transparent!important;}
-body {
-  counter-reset: chapter figure-cat-figure figure-cat-photo figure-cat-table footnote-counter footnote-marker-counter;
-  overflow-wrap: break-word;
-}
+
+/*.article-part.article-title {
+  page-break-before: always!important;
+}*/
 
 html,
 body,
@@ -283,28 +273,46 @@ video {
   font-size: 100%;
   vertical-align: baseline;
 }
+html {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  font-size: 62.5%;
+  color: #000;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+html body { background-color: transparent!important;}
+body {
+  counter-reset: chapter figure-cat-figure figure-cat-photo figure-cat-table footnote-counter footnote-marker-counter;
+  overflow-wrap: break-word;
+  font-size: 1.6rem;
+}
+
 .copyrightpage p {
   font-family: "Fira Sans", sans-serif;
   color: #000;
+  font-weight: 300;
 }
 nav::before {
   content: "Contents";
   font-family: "Fira Sans Condensed", sans-serif;
-  font-size: 55px;
-  color: #f68b1e;
-  font-weight: 600;
+  font-size: 5.5rem;
+  color:#f68b1e;
 }
 nav {
   margin: 2em 0;
   break-before: always;
   page-break-before: always;
-  width: 80%;
+  width: 70%;
   font-family: "Fira Sans Condensed", sans-serif;
+  font-weight: 500;
 }
 nav ol {
   margin-top: 2em;
   list-style: none;
 }
+
 nav li a {
   display: inline-flex;
   width: 100%;
@@ -312,22 +320,20 @@ nav li a {
   color: currentColor;
   align-items: baseline;
   border: none;
-  /*font-size: 9pt;*/
+  font-size: 1.4rem;
   border-bottom: 1px solid;
   line-height: 1.8em;
+
 }
-/*nav li a:hover {
+nav li a:hover {
   border-bottom: 0px;
-}*/
+}
 nav li a::before {
   margin-right: 0.5em;
   /*border-bottom: 1px dotted;*/
   content: "";
   order: 1;
-  flex: auto;
-}
-nav li {
-  font-weight: 500;
+ flex: auto;
 }
 
 nav li ol {
@@ -339,11 +345,6 @@ nav li ol li {
   font-weight: 300;
 }
 
-nav li ol li ol li ol li {
-  display: none;
-}
-
-
 nav li a::after {
  text-align: right;
  content: target-counter(attr(href), page);
@@ -352,16 +353,15 @@ nav li a::after {
  order: 2;
 }
 
-div.titlepage {
-  /*background-image: url("https://raw.githubusercontent.com/mrchristian/quick-start/05c5b3dd2bdbdfd785bb158752e3bd3c7b415c66/assets/logo-gfm.png");
+div.titlepage {background-image: url("media/logo-sfa-gfm.png");
 background-position: bottom;
 background-size: 100%;
-background-repeat: no-repeat;*//*logo cover image*/
+background-repeat: no-repeat;
 height: 100vh}
 .booktitle {
   /*text-align: center;*/
   font-family: "Fira Sans Condensed", sans-serif;
-  font-size: 55px;
+  font-size: 5.5rem;
   color:#f68b1e;
   page-break-inside: avoid;
   page-break-after: avoid;
@@ -382,17 +382,17 @@ height: 100vh}
   height: 10em;
   background-image: linear-gradient(#f68b1e,#f68b1e);
   background-repeat: no-repeat;
-  background-size: 80px 9px;
+  background-size: 70px 6px;
   background-position: 0% 0%;
   padding-top: 1em;
   color: #fff;
-  content:" ";/*here goes text*/
-  font-size: 18px;
+  content:"STADT FRANKFURT AM MAIN";
+  font-size: 1.8rem;
 }
 
 h2.booksubtitle {
   font-family: "Fira Sans Condensed", sans-serif;
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 300!important;
   color:#fff;
   margin: 0.1em 0 1em 0;
@@ -400,46 +400,36 @@ h2.booksubtitle {
 }
 h3.bookauthor {
   font-family: "Fira Sans Condensed", sans-serif;
-  font-size: 20px;
+  font-size: 2rem;
   color:#fff;
   font-weight: 200!important;
 }
 
 h4.bookversion {
   font-family: "Fira Sans Condensed", sans-serif;
-  font-size: 20px;
+  font-size: 2rem;
   color:#fff;
   font-weight: 200!important;
 }
 
 h1.part {
-  page-break-before: always!important;
-  page-break-after: always!important;
-  color: #000;
-  margin-top:0;
-}
-h1.part:before {
-  display: block;
-  text-transform: none;
-  counter-increment: chapter;
-  height: 1em;
-  background-image: linear-gradient(#f68b1e,#f3820e);
-  background-repeat: no-repeat;
-  background-size: 80px 9px;
-  background-position: 0% 0%;
-  content:"";
+  /*clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;*/
+  page-break-before: avoid!important;
 }
 
-.article-part.article-title {
-  page-break-before: always!important;
-}
 .article-title {
   font-family: "Fira Sans Condensed", sans-serif;
   string-set: chapter-title content(text);
-  font-size: 55px;
+  font-size: 5.5rem;
   color:#f68b1e;
   /*margin-top: 2em;*/
-  page-break-before: always!important;
   page-break-inside: avoid;
   page-break-after: avoid;
   text-transform: none;
@@ -448,7 +438,7 @@ h1.part:before {
   letter-spacing: 0pt;
   word-spacing: 1px;
   font-weight: 600;
-  max-width: 70%;
+  max-width: 80%;
 }
 
 .article-title strong { font-weight: 600;}
@@ -460,7 +450,7 @@ h1.part:before {
   height: 1em;
   background-image: linear-gradient(#f68b1e,#f3820e);
   background-repeat: no-repeat;
-  background-size: 80px 9px;
+  background-size: 70px 6px;
   background-position: 0% 0%;
   content:"";
 }
@@ -468,39 +458,31 @@ h1.part:before {
   display: block;
   background-image: linear-gradient(#f68b1e,#f3820e);
   background-repeat: no-repeat;
-  background-size: 80px 9px;
+  background-size: 70px 6px;
   background-position: 0% 100%;
   content:"";
   height:1em;
 }
-.article-contributors, .article-authors {
-  font-size:  0.8837rem;
-  font-weight: 300;
-  margin: 20px 0;
-}
-.article-abstract {
-  margin: 10px 0 80px 0;
-}
-.article-abstract p {
-  font-size:  1.3rem;
-  font-weight: 400;
-  margin: 10px 0 80px 0;
-}
-
 
  .article-body {
    margin-top: -15px;
    margin-left: 170px;
  }
+ .epub .article-body {
+   margin-top: 15px;
+   margin-left: 0px;
+ }
 
  section.fnlist {
    margin-left: 170px;
  }
-
+.epub section.fnlist {
+  margin-left: 0px;
+}
 /*Literaturverzeichnis*/
 h1.article-bibliography-header {
   font-family: "Fira Sans", sans-serif;
-  font-size: 1.395rem;
+  font-size: 2.2rem;
   text-align: left;
   margin-bottom: 0;
   page-break-inside: avoid;
@@ -513,13 +495,18 @@ h1.article-bibliography-header {
   margin-left: 170px;
   font-weight: 600;
 }
+
 div.csl-bib-body {
   margin-left: 170px;
+}
+
+.epub h1.article-bibliography-header, .epub div.csl-bib-body {
+  margin-left: 0px;
 }
 .csl-entry {
   font-family: "Fira Sans", sans-serif;
   font-weight: 300;
-  font-size:  0.8837rem;
+  font-size: 1.4rem;
   line-height: 1.37;
   margin-bottom: 9pt;
   /*letter-spacing: 0.2pt;
@@ -528,6 +515,9 @@ div.csl-bib-body {
 .article-body > figure.image-width-100 {
   margin-left: -170px;
   width: auto !important;
+}
+.epub .article-body > figure.image-width-100 {
+  margin-left: 0px!important;
 }
 
 .image-width-100 {
@@ -560,7 +550,7 @@ div.csl-bib-body {
 }
 
 p {
-  font-size:  0.8837rem; /* 0.8837rem */
+  font-size:  1.4rem;
   line-height: 1.37; /* 1.3954rem */
   margin-bottom: 0pt;
   text-align: justify;
@@ -568,6 +558,7 @@ p {
   /*word-spacing: 0.2pt;*/
   orphans: 2;
   widows: 2;
+  -epub-hyphens: auto;
 }
 
 p + p {
@@ -604,6 +595,7 @@ em,
 .italic {
   font-family: inherit;
   font-style: italic;
+  font-weight: 400;
 }
 
 pre {
@@ -644,21 +636,16 @@ sup {
   vertical-align: baseline;
 }
 
-.references p {
-  line-height: 10.8pt;
-  font-size: 9pt;
-}
-
 blockquote {
   display: block;
   width: 95%;
   position: relative;
   font-family: "Fira Sans", sans-serif;
-  font-size:  11pt; /* 1.023rem */
+  font-size:  1.4rem;
   vertical-align: baseline;
   margin-top: 12pt;
   margin-bottom: 12pt;
-  margin-left: 20px;/* 3.3241rem*/
+  margin-left: -100px;/* 3.3241rem*/
   padding-left: 5px;
   margin-right: 10px;
 
@@ -680,8 +667,8 @@ blockquote p {
   font-family: inherit;
   text-align: left;
   font-weight: 200;
-  line-height: 1.37;
-  font-style: italic;
+  font-size: 140%;
+  line-height: 1.5;
 }
 
 blockquote strong {
@@ -701,12 +688,12 @@ h5,
 h6 {
   font-family: "Fira Sans", sans-serif;
   margin-top: 1.5em;
-  color: #000; /*rgb(25,43,83);*/
+  color: black; /*rgb(25,43,83);*/
 }
 
 h1 {
   font-family: "Fira Sans", sans-serif;
-  font-size: 55px; /* 2.233rem */
+  font-size: 5.5rem;
   color:#f68b1e; /*rgb(25,43,83);*/
   margin-bottom: 1em;
   margin-top: 1em;
@@ -717,27 +704,27 @@ h1 {
   white-space: pre-line;
   letter-spacing: 0pt;
   word-spacing: 1px;
-  font-weight: 600
+  font-weight: 600;
 }
 
 h1 strong { font-weight: 400;}
 
 h2 {
-  font-size: 1.395rem; /*  */
+  font-size: 2.2rem;
   font-family: "Fira Sans", sans-serif;
   text-transform: none;
   font-weight: 600;
   /*margin: 1.5em 0 1.2em 0;*/
-  margin-top: 20pt;
-  margin-bottom: 9pt;
+  margin-top: 1.67em;
+  margin-bottom: 0.75em;
   page-break-inside: avoid;
   page-break-after: avoid;
 }
 
 h3 {
-  font-size: 1.18rem; /* 1.209rem */
+  font-size: 1.9rem; /* 1.209rem */
   font-family: "Fira Sans", sans-serif;
-  margin-top: 17pt;
+  margin-top: 1.67em;
   page-break-inside: avoid;
   page-break-after: avoid;
   font-weight: 600;
@@ -745,31 +732,31 @@ h3 {
 }
 
 h4 {
-  font-size: 1.01rem; /* 1.023rem */
+  font-size: 1.6rem; /* 1.023rem */
   font-family: "Fira Sans", sans-serif;
-  margin-top: 15pt;
-  margin-bottom: 9pt;
-  font-weight: 600;
+  margin-top: 1.67em;
+  margin-bottom: 0.75em;
+  font-weight: 700;
   page-break-inside: avoid;
   page-break-after: avoid;
 }
 
 h5 {
   font-family: "Fira Sans", sans-serif;
-  font-weight: 400;
-  font-size: 0.97rem; /* 0.930rem*/
-  margin-top: 18px;
-  margin-bottom: 5pt;
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin-top: 1.67em;
+  margin-bottom: 0.42em;
   page-break-inside: avoid;
   page-break-after: avoid;
 }
 
 h6 {
   font-family: "Fira Sans", sans-serif;
-  font-weight: 600;
-  font-size: 0.89rem;
-  margin-top: 20pt;
-  margin-bottom: 5pt;
+  font-weight: 700;
+  font-size: 1.2rem; /* 0.930rem*/
+  margin-top: 1.67em;
+  margin-bottom: 0.42em;
   page-break-inside: avoid;
   page-break-after: avoid;
 }
@@ -777,7 +764,7 @@ h6 {
 hr {
     border: 0;
     height: 1px;
-    background: #000;
+    background: #2c2723;
     }
 
 hr.br { border:0; height: 0px; }
@@ -795,7 +782,7 @@ hr.br { border:0; height: 0px; }
 .footnotes ol li p a {
   text-wrap: word-break;
 }
-.footnote-counter {font-size: 12px; font-weight: 600;}
+.footnote-counter { font-weight: 400;}
 
 /*li[id*="fn"] {
   text-indent: 0;
@@ -807,9 +794,9 @@ hr.br { border:0; height: 0px; }
 .fnlist p {
   text-indent: 0;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.37;
   margin: 0.2em 0 0.5em 0;
-  font-size: 12px;/*0.76rem*/
+  font-size: 1rem;
   font-family: "Fira Sans", sans-serif;
   text-align: left;
 }
@@ -817,9 +804,9 @@ hr.br { border:0; height: 0px; }
 
 /*epub*/
 .footnote-content {
-  color: #000;
+  color: black;
   text-indent: 0;
-  font-size: 0.7rem;
+  font-size: 1rem;
   font-family: "Fira Sans", sans-serif;
 }
 
@@ -838,8 +825,8 @@ figure {
   text-indent: 0;
   width: 100%;
   text-align: center;
-  margin-top: 27pt;
-  margin-bottom: 27pt;
+  margin-top: 2.25em;
+  margin-bottom: 2.25em;
 }
 
 figure img {
@@ -853,14 +840,14 @@ figure figcaption {
   font-family: "Fira Sans", sans-serif;
   margin: 8px 0;
   font-weight: 300;
-  font-size:  0.82rem;
+  font-size:  1.2rem;
   line-height: 1.37;
   text-indent: 0;
   text-align: left;
 }
 
 .label-counter {
-  font-weight: 700;
+  font-weight: 600;
 }
 /*From Fidus writer*/
 .figure-cat-figure::after {
@@ -885,19 +872,22 @@ figure figcaption {
 ul {
   display: block;
   list-style-type: disc;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+  margin-left: 8px;
   margin-right: 0;
-  padding-left: 20px;
-  font-size:  0.8837rem!important;
+  padding-left: 12px;
+  /*font-size:  9.5pt;*/
+  font-size:  1.4rem;
+  font-weight: 300;
   line-height: 1.37;
   hyphens: none;
+
 }
 ul li {
-  margin-bottom: 0.5em;
-  height: auto;
+  padding-bottom: 6px;
 }
+
 
 ul.dashed {
   list-style-type: none;
@@ -912,12 +902,12 @@ ul.dashed > li:before {
   font-size: 120%;
   font-weight: 700;
 }
-/*#page-navigation ol {
+#page-navigation ol {
     margin: 0;
     padding: 0;
     list-style-type: decimal;
     float: left;
-}*/
+}
 
  .article-body ol {
   display: block;
@@ -927,15 +917,44 @@ ul.dashed > li:before {
   margin-bottom: 1em;
   margin-left: 0;
   margin-right: 0;
-  padding-left: 18px;
-  font-size:  0.8837rem!important;
+  padding-left: 16px;
+  font-size:  1.4rem;
   line-height: 1.37;
   hyphens: none;
+  font-weight: 300;
 }
 ol li {
   margin-bottom: 0.5em;
+  /*counter-increment: ol-counter;*/
+}
+/*ol li::before {
+  content: counter(ol-counter) ". ";
+  color:#f68b1e;
+  font-weight: bold;
+}*/
+
+/*ol {
+    counter-reset: foo;
+    display: table;
+    line-height: 14pt;
+    margin: 1em 0;
+    padding-left: 1.9em;
 }
 
+ol li {
+    list-style: none;
+    counter-increment: foo;
+    display: table-row;
+    margin: 0;
+    padding: 0;
+}
+
+ol li::before {
+    content: counter(foo) ".";
+    display: table-cell;
+    text-align: left;
+    padding-right: .28em;
+}*/
 
 table {
   margin: 0 auto;
@@ -943,23 +962,29 @@ table {
   font-family: "Fira Sans", sans-serif;
   background-size: 8pt;
   page-break-inside: avoid;
-  margin-top: 9pt;
-  margin-bottom: 18pt;
+  margin-top: 0.75em;
+  margin-bottom: 1.5em;
   border-collapse: collapse;
   /*border-bottom: 1pt solid #000;*/
   border-left: 0;
   border-right: 0;
   text-align: left;
-  font-size: 9pt;
+  font-size: 1rem;
 }
 
 .article-body > table.table-100.table-fixed {
   margin-left: -170px !important;
   width: auto !important;
 }
+.epub .article-body > table.table-100.table-fixed {
+  margin-left: 0px;
+  width: 98%;
+}
 .article-body + table caption {
   padding-top: 80px!important;
-  /*background-color: blue!important;*/
+}
+.epub .article-body + table caption {
+  margin-top: 15px!important;
 }
 
 table.tbnostyle tr:first-of-type td {
@@ -972,7 +997,8 @@ table caption {
   /*border-top: 1px solid rgb(231,231,231);
   border-bottom: 1px solid #435772;*/
   padding: 1em 0;
-  font-size:  0.82rem;
+  font-weight: 300;
+  font-size:  1.2rem;
   text-align: left;
   margin: 0 auto;
   vertical-align: middle;
@@ -1001,11 +1027,11 @@ table p,
 table ul,
 table li,
 table ol {
-  font-size: 9pt;
-  font-weight: 400;
-  line-height: 1.37;
+  font-size: 1rem;
+  line-height: 1.3;
   margin: 0;
   font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
   text-align: left;
   text-indent: 0;
 }
@@ -1073,14 +1099,14 @@ table + p {
 }
 
 table + p + p {
-  margin-top: 18pt;
+  margin-top: 1.5em;/*18pt*/
 }
 
 /*ul numeric*/
 ul.numeric-decimals { counter-reset:section -1; list-style-type:none; list-style-position: outside; padding-left: 0; font-size: 9pt;}
 ul.numeric-decimals li { list-style-type:none;
   margin-top: 0.3em;
-  color: #000;
+  color: black;
   margin-left: 0;
   margin-left: 0;
   text-indent: 0;
@@ -1146,73 +1172,34 @@ ol.upper-latin {
   a {
     color: #000;
     text-decoration: none !important;
-    border-bottom: 1px dotted rgb(101,100,98);
+    border-bottom: 1px dashed rgb(101,100,98);
   }
 
-  @page {
+  @page, @page :left, @page :right{
     size: 210mm 297mm;
+    margin-top: 20mm;
+    margin-bottom: 25mm;
+    margin-left: 20mm;
+    margin-right: 20mm
   }
 
-}
-
-@media screen and (min-width: 400px) and (max-width: 700px) {
-    .article-body, section.fnlist , h1.article-bibliography-header, div.csl-bib-body, .article-body > figure.image-width-100, .article-body > table.table-100.table-fixed, blockquote  {
-     margin-left: 0px!important;
-    }
-    .article-body {
-      margin-top: 15px;
-    }
-    .article-title, h1.part, nav::before {
-     max-width: 100%;
-     font-size: 40px;
-    }
-    nav {
-     width: 100%;
-     font-size: 0.7rem;
-    }
-    nav li a {
-     line-height: 1.2em;
-    }
-
-}
-/* EPUB overwrites */
- .epub .article-body {
-   margin-top: 15px;
+  p {
+    font-size:  1.4rem;
+    font-weight: 300;
+    line-height: 1.37; /* 1.3954rem */
+    margin-bottom: 0pt;
+    text-align: justify;
+    /*letter-spacing: 0.2pt;
+    /*word-spacing: 0.2pt;*/
+    orphans: 2;
+    widows: 2;
  }
 
- .epub .article-body p {
-   text-align: left;
- }
+ /*.article-body ol, .article-body ul, .article-body ol p, .article-body ul p {
+   {
+     font-size:  0.80rem!important;
+     font-weight: 300!important;
+     line-height: 1.3!important;
+ }*/
 
- .epub .article-body, .epub section.fnlist , .epub h1.article-bibliography-header, .epub div.csl-bib-body, .epub .article-body > figure.image-width-100, .epub .article-body > table.table-100.table-fixed, .epub blockquote  {
-  margin-left: 0px!important;
 }
- .epub .article-title, .epub h1.part, .epub nav::before {
-  max-width: 100%;
-  font-size: 40px;
-}
-.epub nav {
-  width: 100%;
-  font-size: 0.7rem;
-}
-.epub nav li a {
-  line-height: 1.2em;
-}
-.epub .figure-cat-figure + span::before, .epub .figure-cat-photo + span::before, .epub .figure-cat-table + span::before {
-    content: ' ';
-}
-
-section[role=doc-endnotes]:first-of-type::before {
-    content: 'Footnotes';
-    display: block;
-    font-family: "Fira Sans", sans-serif;
-    font-size: 1.395rem;
-    color:#f68b1e;
-    font-weight: 600;
-    border-bottom: 1px solid black;
-    height: 2em;
-    margin-bottom: 1em;
-  }
-/*.epub nav li a:hover {
-  border-bottom: 1px solid;
-}*/
